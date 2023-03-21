@@ -1,0 +1,42 @@
+
+
+klasa Gracz:
+	parametry:
+		id (nr porzadkowy)
+		nazwa
+	
+	wykonuje ruch:
+		wymienić kartę/y (1/2/3)
+		wyłożyć kartę:
+			1) zaszczepić siebie/kogoś
+			2) zarazić kogoś (siebie?)
+			3) wyłożyć organ
+	
+	
+klasa Karta:
+	parametry:
+		kolor (czerwony/niebieski/żółty/zielony/kolorowy)
+		funkcja (organ/wirus/lek)
+	
+
+klasa Plansza:
+	parametry:
+		lista wykorzystanych kart
+		lista kart do brania
+		lista kart każdego gracza:
+			1) wyłożonych kart
+			2) kart na ręce
+		
+	
+	pilnuje kolejności: 
+
+	pilnuje kart:
+		1) posiada liste wyłożonych kart każdego gracza oraz liste kart gracza na ręce
+		2) pilnuje wykorzystane karty - w momencie gdy nie można dobrac żadnych kart - tasuje je
+		3) pilnuje czy ktoś nie wygrał
+		4) pilnuje czy czyjś organ nie musi zostać usunięty I PRZEKŁADA GO NA STOS WYKORZYSTANYCH KART
+		5) pilnuje czy ruch wykonany przez gracza jest legalny
+		6) pilnuje żeby każdy gracz miał zawsze 3 karty (na początku nowej tury)s
+
+
+	
