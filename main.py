@@ -1,5 +1,6 @@
 from plansza import Plansza
 from karta import Karta
+from gracz import Gracz
 
 karta1 = Karta("zielony", "wirus")
 karta2 = Karta("zielony", "wirus")
@@ -82,6 +83,10 @@ talia = [karta1, karta2, karta3, karta4, karta5, karta6, karta7, karta8, karta9,
          karta40, karta41, karta42, karta43, karta44, karta45, karta46, karta47, karta48, karta49, 
          karta50, karta51, karta52, karta53, karta54, karta55, karta56, karta57, karta58]
 
+
+gracz1 = Gracz(1, "Gracz1")
+gracz1.wymien_karte()
+gracz1.wyloz_karte()
 
 
 #jezeli plik nie jest importowany
