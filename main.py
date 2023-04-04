@@ -1,4 +1,7 @@
 from plansza import Plansza
+from gracz import Gracz
+from interfejsy import InterfejsPlanszy
+from plansza import Plansza
 from karta import Karta
 from gracz import Gracz
 
@@ -75,7 +78,7 @@ karta56 = Karta("wielokolorowy", "lek")
 karta57= Karta("wielokolorowy", "lek")
 karta58 = Karta("wielokolorowy", "lek")
 
-
+#okroić talie tylko do organow
 talia = [karta1, karta2, karta3, karta4, karta5, karta6, karta7, karta8, karta9, karta10, 
          karta11, karta12, karta13, karta14, karta15, karta16, karta17, karta18, karta19, 
          karta20, karta21, karta22, karta23, karta24, karta25, karta26, karta27, karta28, karta29, 
@@ -84,28 +87,27 @@ talia = [karta1, karta2, karta3, karta4, karta5, karta6, karta7, karta8, karta9,
          karta50, karta51, karta52, karta53, karta54, karta55, karta56, karta57, karta58]
 
 
-gracz1 = Gracz(1, "Gracz1")
-gracz1.wymien_karte()
-gracz1.wyloz_karte()
-
-
-#jezeli plik nie jest importowany
 if __name__ == "__main__":
+
+    liczba_graczy = int(input('Podaj liczbe graczy: '))
+    gracze = []
+    for gracz_id in range(1, liczba_graczy+1):
+        gracze.append(Gracz(gracz_id, 'bot'))
     Plansza = Plansza(talia)
-    Plansza.rozdaj_karty(4)
+    Plansza.rozdaj_karty(liczba_graczy)
 
-    # zamiast tych printow bedzie klasa UI
-    print(Plansza.karty_na_reku[1])
-    print(Plansza.karty_na_reku[2])
-    print(Plansza.karty_na_reku[3])
-    print(Plansza.karty_na_reku[4])
 
-    Plansza.poloz_karte(0, 1)
-    Plansza.poloz_karte(0, 2)
-    Plansza.poloz_karte(0, 3)
-    Plansza.poloz_karte(0, 4)
+    koniec = False
+    while koniec is False:
+        for gracz in gracze:
+            #UI.pokaz_karty(gracz_id)
+    ########ta czesc trwa dopoki gracz nie zrobi legalnego ruchu (nie wylozy karty lubi nie wymieni kart - wymiana kart zawsze legalna)
+    ########while True:
+    ############ gracz.wykonaj_ruch()
+    ############ if interfejsPlanszy.sprawdz_czy_ruch_legalny(): funkcja zwraca True/False
+    ################ interfejsPlanszy.wykonaj_ruch(gracz.id)
+    ################ break
 
-    print(Plansza.karty_na_reku[1])
-    print(Plansza.karty_na_reku[2])
-    print(Plansza.karty_na_reku[3])
-    print(Plansza.karty_na_reku[4])
+    ############# if self.sprawdz_czy_wygral(gracz.id): funkcja zwraca True/False
+    ################# break
+    ############ self.daj_karty_graczowi(1, gracz.id)
