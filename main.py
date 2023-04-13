@@ -97,9 +97,9 @@ if __name__ == "__main__":
     Plansza.rozdaj_karty(liczba_graczy)
 
 
-    koniec = False
-    while koniec is False:
-        for gracz in gracze:
+#    koniec = False
+#    while koniec is False:
+ #       for gracz in gracze:
             #UI.pokaz_karty(gracz_id)
     ########ta czesc trwa dopoki gracz nie zrobi legalnego ruchu (nie wylozy karty lubi nie wymieni kart - wymiana kart zawsze legalna)
     ########while True:
