@@ -2,6 +2,17 @@ from plansza import Plansza
 from karta import Karta
 from gracz import Gracz
 
+
+class InterfejsInterfejsuPlanszy:
+    def sprawdz_czy_ruch_legalny(self, gracz_id):
+        pass
+    @staticmethod
+    def wymien_karte(karta, gracz_id):
+        pass
+    @staticmethod
+    def wyloz_karte(karta, gracz_id): 
+        pass
+
 class InterfejsPlanszy:
 
     #nie wiem czy te metody nie powinny byc statyczne
