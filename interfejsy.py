@@ -2,7 +2,10 @@ from plansza import Plansza
 from karta import Karta
 from gracz import Gracz
 
-
+class Karta:
+    def __init__(self, kolor, funkcja):
+        pass
+    
 class InterfejsInterfejsuPlanszy:
     def sprawdz_czy_ruch_legalny(self, gracz_id):
         pass
