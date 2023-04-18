@@ -1,9 +1,9 @@
 import random
-
-class Plansza:
+from interfejsy import InterfejsPlanszy
+class Plansza(InterfejsPlanszy):
 
     def __init__(self, talia):
-        self.talia = talia #lista objektow klasy Karta
+        self.talia = talia  # lista objektow klasy Karta
         self.karty_pozostale = self.talia[:]
         self.karty_uzyte = []
 
@@ -11,7 +11,7 @@ class Plansza:
         self.karty_na_reku = {}
 
     def rozdaj_karty(self, ilosc_graczy):
-        for gracz_id in range(1, ilosc_graczy+1):
+        for gracz_id in range(1, ilosc_graczy + 1):
             self.karty_polozone[gracz_id] = []
             self.karty_na_reku[gracz_id] = []
             self.daj_karty_graczowi(3, gracz_id)
