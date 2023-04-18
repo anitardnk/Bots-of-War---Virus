@@ -6,7 +6,7 @@ class InterfejsKarty:
 from posrednik import PosrednikGraczPlansza
 
 
-class InterfejsPosrednikGraczPlansza`:
+class InterfejsPosrednikGraczPlansza:
     def sprawdz_czy_ruch_legalny(self, gracz_id):
         pass
     @staticmethod
