@@ -52,11 +52,3 @@ class InterfejsUI:
 
     def pokaz_wszystkie_karty(self):
         pass
-
-class InterfejsBotRandomowy:
-
-    def __init__(self):
-        pass
-
-    def wykonaj_ruch(self,gracz_id):
-        pass
