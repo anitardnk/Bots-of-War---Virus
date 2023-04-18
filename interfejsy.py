@@ -1,7 +1,3 @@
-from plansza import Plansza
-from karta import Karta
-from gracz import Gracz
-
 class InterfejsKarty:
     def __init__(self, kolor, funkcja):
         pass
