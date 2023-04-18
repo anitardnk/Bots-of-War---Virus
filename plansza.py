@@ -1,5 +1,7 @@
 import random
 from interfejsy import InterfejsPlanszy
+
+
 class Plansza(InterfejsPlanszy):
 
     def __init__(self, talia):
@@ -28,3 +30,9 @@ class Plansza(InterfejsPlanszy):
         karta = self.karty_na_reku[gracz_id][indeks_karty]
         self.karty_polozone[gracz_id].append(karta)
         self.karty_na_reku[gracz_id].remove(karta)
+
+    def ruch_gracza(self, gracz_id):
+        #UI.pokaz_karty(gracz_id)
+        pass
+        
+

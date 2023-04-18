@@ -1,9 +1,8 @@
+
+
 class InterfejsKarty:
     def __init__(self, kolor, funkcja):
         pass
-
-
-from posrednik import PosrednikGraczPlansza
 
 
 class InterfejsPosrednikGraczPlansza:
@@ -15,6 +14,7 @@ class InterfejsPosrednikGraczPlansza:
     @staticmethod
     def wyloz_karte(karta, gracz_id): 
         pass
+
 
 class InterfejsPlanszy:
 
@@ -30,6 +30,7 @@ class InterfejsPlanszy:
     def poloz_karte(self, indeks_karty, gracz_id):
        pass
 
+
 class InterfejsGracz:
     def __init__(self, gracz_id, nazwa):
         pass
@@ -40,3 +41,22 @@ class InterfejsGracz:
     def wyloz_karte(self, gracz_id):
         pass
 
+
+class InterfejsUI:
+
+    def __init__(self):
+        pass
+
+    def pokaz_karty_gracza(self, gracz_id):
+        pass
+
+    def pokaz_wszystkie_karty(self):
+        pass
+
+class InterfejsBotRandomowy:
+
+    def __init__(self):
+        pass
+
+    def wykonaj_ruch(self,gracz_id):
+        pass

@@ -1,10 +1,12 @@
 from posrednik import PosrednikGraczPlansza
 from interfejsy import InterfejsGracz
+
+
 class Gracz(InterfejsGracz):
-    def __init__(self, gracz_id, nazwa):
+    def __init__(self, gracz_id, nazwa, Plansza):
         self.gracz_id = gracz_id
         self.nazwa = nazwa
-        self.PosrednikGraczPlansza = PosrednikGraczPlansza()
+        self.PosrednikGraczPlansza = PosrednikGraczPlansza(Plansza)
 
     def wymien_karte(self, gracz_id):
         karta = input("Wybierz karte do wymiany: ")
