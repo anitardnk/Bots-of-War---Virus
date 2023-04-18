@@ -4,7 +4,7 @@ from interfejsy import InterfejsPlanszy
 from plansza import Plansza
 from karta import Karta
 from gracz import Gracz
-#testhujni
+
 karta1 = Karta("zielony", "wirus")
 karta2 = Karta("zielony", "wirus")
 karta3 = Karta("zielony", "wirus")
