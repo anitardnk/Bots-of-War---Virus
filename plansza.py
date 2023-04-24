@@ -34,5 +34,23 @@ class Plansza(InterfejsPlanszy):
     def ruch_gracza(self, gracz_id):
         #UI.pokaz_karty(gracz_id)
         pass
+
+    def rozgrywka(self):
+        #plansza powinna miec liste graczy/botow
+        koniec = False
+        while koniec is False:
+            for gracz in gracze:
+                print('RUCH GRACZA: ', gracz.gracz_id)
+                sleep(0.3)
+                print('Karty na rece: ')
+                for i in Plansza.karty_na_reku[gracz_id]:
+                    print(i.kolor, i.funkcja, end=" ")
+                sleep(0.3)
+                print('\nKarty wylozone: ')
+                for i in  Plansza.karty_polozone[gracz_id]:              
+                    print(i.kolor, i.funkcja, end=" ")
+                sleep(0.3)
+                gracz.wykonaj_ruch()
+                input('\nNacisnij dowolny przycisk aby kontynuowac: ')
         
 
