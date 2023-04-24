@@ -92,29 +92,18 @@ talia = [karta1, karta2, karta3, karta4, karta5, karta6, karta7, karta8, karta9,
 if __name__ == "__main__":
 
     #liczba_graczy = int(input('Podaj liczbe graczy: '))
+    #main ma teraz wykonywac k meczy - jeden TURNIEJ
+    #main ma przechowywac liste zwyciezcow i zwracac ja na koniec TURNIEJU
+    
     liczba_graczy = 1
     gracze = []
     Plansza = Plansza(talia)
     for gracz_id in range(1, liczba_graczy+1):
         gracze.append(BotRandomowy(gracz_id, 'bot', Plansza))
     Plansza.rozdaj_karty(liczba_graczy)
+    Plansza.rozgrywka()
 
-
-    koniec = False
-    while koniec is False:
-        for gracz in gracze:
-            print('RUCH GRACZA: ', gracz.gracz_id)
-            sleep(0.3)
-            print('Karty na rece: ')
-            for i in Plansza.karty_na_reku[gracz_id]:
-                print(i.kolor, i.funkcja, end=" ")
-            sleep(0.3)
-            print('\nKarty wylozone: ')
-            for i in  Plansza.karty_polozone[gracz_id]:              
-                print(i.kolor, i.funkcja, end=" ")
-            sleep(0.3)
-            gracz.wykonaj_ruch()
-            input('\nNacisnij dowolny przycisk aby kontynuowac: ')
+    
             # to dla prawdziwego gracza nie dla bota
             #ruch = ""
             #while ruch != "wymien" or ruch != "wyloz":
