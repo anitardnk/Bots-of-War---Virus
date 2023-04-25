@@ -80,6 +80,7 @@ karta56 = Karta("wielokolorowy", "lek")
 karta57= Karta("wielokolorowy", "lek")
 karta58 = Karta("wielokolorowy", "lek")
 
+
 #okroić talie tylko do organow
 talia = [karta1, karta2, karta3, karta4, karta5, karta6, karta7, karta8, karta9, karta10, 
          karta11, karta12, karta13, karta14, karta15, karta16, karta17, karta18, karta19, 
@@ -99,17 +100,7 @@ if __name__ == "__main__":
     gracze = []
     Plansza = Plansza(talia)
     for gracz_id in range(1, liczba_graczy+1):
-        gracze.append(BotRandomowy(gracz_id, 'bot', Plansza))
+        gracze.append(BotRandomowy(gracz_id, 'bot', liczba_graczy, Plansza))
+    Plansza.gracze = gracze
     Plansza.rozdaj_karty(liczba_graczy)
-    Plansza.rozgrywka(gracze)
-
-
-    
-            # to dla prawdziwego gracza nie dla bota
-            #ruch = ""
-            #while ruch != "wymien" or ruch != "wyloz":
-            #    ruch = input('Wybierz ruch (wymien/wyloz): ')
-
-    ############# if self.sprawdz_czy_wygral(gracz.id): funkcja zwraca True/False
-    ################# break
-    ############ self.daj_karty_graczowi(1, gracz.id)
+    Plansza.rozgrywka()

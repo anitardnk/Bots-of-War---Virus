@@ -13,8 +13,10 @@ class PosrednikGraczPlansza(InterfejsPosrednikGraczPlansza):
     def wymien_karte(self, indeks_karty, gracz_id):
         karta = self.Plansza.karty_na_reku[gracz_id][indeks_karty]
         if karta in self.Plansza.karty_na_reku[gracz_id]:
-            self.Plansza.karty_na_reku[gracz_id].remove(karta)
+            self.Plansza.wymien_karte(indeks_karty, gracz_id)
             self.Plansza.daj_karty_graczowi(1, gracz_id)
+            delta = "wymien "+str(indeks_karty)
+            self.Plansza.poinformuj_graczy_o_ruchu(delta, gracz_id)
             return True
         else:
             return False
@@ -24,6 +26,8 @@ class PosrednikGraczPlansza(InterfejsPosrednikGraczPlansza):
         if karta in self.Plansza.karty_na_reku[gracz_id]:
             self.Plansza.poloz_karte(indeks_karty, gracz_id)
             self.Plansza.daj_karty_graczowi(1, gracz_id)
+            delta = "wyloz "+str(indeks_karty)
+            self.Plansza.poinformuj_graczy_o_ruchu(delta, gracz_id)
             return True
         else:
             return False

@@ -76,6 +76,9 @@ class InterfejsPlanszy:
     def pokaz_liste_graczy(self):
         pass
 
+    def poinformuj_graczy_o_ruchu(self, delta, gracz_id):
+        pass
+
 
 class InterfejsGracz:
     def __init__(self, gracz_id, nazwa):
@@ -90,6 +93,12 @@ class InterfejsGracz:
     #przygotowac sie do nowej rozgrywki
     #wywolywane po ruchu KAZDEGO gracza - nawet po swoim ruchu
     def aktualizacja_planszy_po_ruchu(self, gracz_id, delta):
+        pass
+
+    def aktualizacja_planszy_po_ruchu_wymien(self, delta, gracz_id, karta):
+        pass
+
+    def aktualizacja_planszy_po_ruchu_wyloz(self, delta, gracz_id,  karta):
         pass
 
 

@@ -31,16 +31,31 @@ class Plansza(InterfejsPlanszy):
         karta = self.karty_na_reku[gracz_id][indeks_karty]
         self.karty_polozone[gracz_id].append(karta)
         self.karty_na_reku[gracz_id].remove(karta)
+    
+    def wymien_karte(self, indeks_karty, gracz_id):
+        #print('wymieniam karte '+ self.karty_na_reku[gracz_id][indeks_karty].kolor + self.karty_na_reku[gracz_id][indeks_karty].funkcja)
+        self.karty_uzyte.append(self.karty_na_reku[gracz_id][indeks_karty])
+        self.karty_na_reku[gracz_id].remove(self.karty_na_reku[gracz_id][indeks_karty])
 
     def ruch_gracza(self, gracz_id):
         #UI.pokaz_karty(gracz_id)
         pass
 
-    def rozgrywka(self, gracze):
+    def poinformuj_graczy_o_ruchu(self, delta, gracz_id):
+        if 'wymien' in delta:
+            karta = self.karty_uzyte[0].kolor, self.karty_uzyte[0].funkcja
+            for gracz in self.gracze:
+                gracz.aktualizacja_planszy_po_ruchu_wymien(delta, gracz_id, karta)
+        elif 'wyloz' in delta:
+            karta = self.karty_polozone[gracz_id][0]
+            for gracz in self.gracze:
+                gracz.aktualizacja_planszy_po_ruchu_wyloz(delta, gracz_id, karta)
+        
+    def rozgrywka(self):
         #plansza powinna miec liste graczy/botow
         koniec = False
         while koniec is False:
-            for gracz in gracze:
+            for gracz in self.gracze:
                 print('RUCH GRACZA: ', gracz.gracz_id)
                 sleep(0.3)
                 print('Karty na rece: ')
@@ -52,6 +67,7 @@ class Plansza(InterfejsPlanszy):
                     print(i.kolor, i.funkcja, end=" ")
                 sleep(0.3)
                 gracz.wykonaj_ruch()
+                
                 input('\nNacisnij dowolny przycisk aby kontynuowac: ')
         
 
