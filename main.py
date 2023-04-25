@@ -5,7 +5,7 @@ from plansza import Plansza
 from karta import Karta
 from gracz import Gracz
 from boty import BotRandomowy
-from time import sleep
+
 
 karta1 = Karta("zielony", "wirus")
 karta2 = Karta("zielony", "wirus")
@@ -101,7 +101,8 @@ if __name__ == "__main__":
     for gracz_id in range(1, liczba_graczy+1):
         gracze.append(BotRandomowy(gracz_id, 'bot', Plansza))
     Plansza.rozdaj_karty(liczba_graczy)
-    Plansza.rozgrywka()
+    Plansza.rozgrywka(gracze)
+
 
     
             # to dla prawdziwego gracza nie dla bota

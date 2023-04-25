@@ -1,5 +1,6 @@
 import random
 from interfejsy import InterfejsPlanszy
+from time import sleep
 
 
 class Plansza(InterfejsPlanszy):
@@ -35,7 +36,7 @@ class Plansza(InterfejsPlanszy):
         #UI.pokaz_karty(gracz_id)
         pass
 
-    def rozgrywka(self):
+    def rozgrywka(self, gracze):
         #plansza powinna miec liste graczy/botow
         koniec = False
         while koniec is False:
@@ -43,11 +44,11 @@ class Plansza(InterfejsPlanszy):
                 print('RUCH GRACZA: ', gracz.gracz_id)
                 sleep(0.3)
                 print('Karty na rece: ')
-                for i in Plansza.karty_na_reku[gracz_id]:
+                for i in self.karty_na_reku[gracz.gracz_id]:
                     print(i.kolor, i.funkcja, end=" ")
                 sleep(0.3)
                 print('\nKarty wylozone: ')
-                for i in  Plansza.karty_polozone[gracz_id]:              
+                for i in  self.karty_polozone[gracz.gracz_id]:              
                     print(i.kolor, i.funkcja, end=" ")
                 sleep(0.3)
                 gracz.wykonaj_ruch()
