@@ -106,11 +106,25 @@ class InterfejsUI:
 
     def __init__(self, Plansza):
         pass
-    
+
+    def pokaz_wylozone_karty(self):
+        pass
+
+    def pokaz_karty_na_reku(self, gracz_id):
+        pass
+
+    def pokaz_karty_wylozone_gracza(self, gracz_id):
+        pass
+
+    def pokaz_karty_gracza(self, gracz_id):
+        pass
+
+
+
     #pobiera z planszy stan gry
     def aktualizacja_planszy_po_ruchu(self, gracz_id, delta):
         pass
-    
+
     #zwraca jaki ruch, index karty, ewentualnie gracz_id drugiego gracza
     def pobierz_ruch_gracza(self, gracz_id):
         pass
