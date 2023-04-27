@@ -1,7 +1,7 @@
 import random
 from interfejsy import InterfejsPlanszy
 from time import sleep
-
+from UI import ui
 
 class Plansza(InterfejsPlanszy):
 
@@ -9,7 +9,7 @@ class Plansza(InterfejsPlanszy):
         self.talia = talia  # lista objektow klasy Karta
         self.karty_pozostale = self.talia[:]
         self.karty_uzyte = []
-
+        self.ui=ui(self)
         self.karty_polozone = {}
         self.karty_na_reku = {}
 
@@ -39,6 +39,7 @@ class Plansza(InterfejsPlanszy):
 
     def ruch_gracza(self, gracz_id):
         #UI.pokaz_karty(gracz_id)
+    # self.ui.pokaz_karty_gracza(gracz_id)
         pass
 
     def poinformuj_graczy_o_ruchu(self, delta, gracz_id):
@@ -55,19 +56,20 @@ class Plansza(InterfejsPlanszy):
         #plansza powinna miec liste graczy/botow
         koniec = False
         while koniec is False:
+
             for gracz in self.gracze:
                 print('RUCH GRACZA: ', gracz.gracz_id)
                 sleep(0.3)
                 print('Karty na rece: ')
-                for i in self.karty_na_reku[gracz.gracz_id]:
-                    print(i.kolor, i.funkcja, end=" ")
+                self.ui.pokaz_karty_na_reku(gracz.gracz_id)
+                sleep(0.3)
+                print('\nKarty wylozone prez gracza ' + str(gracz.gracz_id) + ': ')
+                self.ui.pokaz_karty_wylozone_gracza(gracz.gracz_id)
                 sleep(0.3)
                 print('\nKarty wylozone: ')
-                for i in  self.karty_polozone[gracz.gracz_id]:              
-                    print(i.kolor, i.funkcja, end=" ")
+                self.ui.pokaz_wylozone_karty()
                 sleep(0.3)
                 gracz.wykonaj_ruch()
-                
                 input('\nNacisnij dowolny przycisk aby kontynuowac: ')
-        
+
 
