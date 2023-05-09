@@ -51,7 +51,15 @@ class Plansza(InterfejsPlanszy):
             karta = self.karty_polozone[gracz_id][0]
             for gracz in self.gracze:
                 gracz.aktualizacja_planszy_po_ruchu_wyloz(delta, gracz_id, karta)
-        
+    
+    def sprawdz_czy_koniec(self):
+        for gracz_id, karty_gracza in self.karty_polozone.items():
+            karty_z_organem = [karta for karta in karty_gracza if karta.funkcja == "organ"]
+            if len(karty_z_organem) == 4:
+                print(f"\nKoniec gry! Gracz {gracz_id} ma 4 karty z organem.")
+                exit()
+
+
     def rozgrywka(self):
         #plansza powinna miec liste graczy/botow
         koniec = False
@@ -70,6 +78,7 @@ class Plansza(InterfejsPlanszy):
                 self.ui.pokaz_wylozone_karty()
                 sleep(0.3)
                 gracz.wykonaj_ruch()
+                self.sprawdz_czy_koniec()
                 input('\nNacisnij dowolny przycisk aby kontynuowac: ')
 
 
