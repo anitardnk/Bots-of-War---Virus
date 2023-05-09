@@ -1,10 +1,10 @@
 from plansza import Plansza
 from gracz import Gracz
 from interfejsy import InterfejsPlanszy
-from plansza import Plansza
 from karta import Karta
 from gracz import Gracz
 from boty import BotRandomowy
+from posrednik import PosrednikGraczPlansza
 
 
 karta1 = Karta("zielony", "organ")
@@ -105,7 +105,8 @@ if __name__ == "__main__":
     gracze = []
     Plansza = Plansza(talia)
     for gracz_id in range(1, liczba_graczy+1):
-        gracze.append(BotRandomowy(gracz_id, 'bot', liczba_graczy, Plansza))
+        posrednik = PosrednikGraczPlansza(Plansza, gracz_id)
+        gracze.append(BotRandomowy(gracz_id, 'bot', liczba_graczy, posrednik))
     Plansza.gracze = gracze
     Plansza.rozdaj_karty(liczba_graczy)
     Plansza.rozgrywka()

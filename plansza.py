@@ -43,11 +43,11 @@ class Plansza(InterfejsPlanszy):
         pass
 
     def poinformuj_graczy_o_ruchu(self, delta, gracz_id):
-        if 'wymien' in delta:
+        if delta['akcja'] == 'wymien':
             karta = self.karty_uzyte[0].kolor, self.karty_uzyte[0].funkcja
             for gracz in self.gracze:
                 gracz.aktualizacja_planszy_po_ruchu_wymien(delta, gracz_id, karta)
-        elif 'wyloz' in delta:
+        elif delta['akcja'] == 'wyloz':
             karta = self.karty_polozone[gracz_id][0]
             for gracz in self.gracze:
                 gracz.aktualizacja_planszy_po_ruchu_wyloz(delta, gracz_id, karta)

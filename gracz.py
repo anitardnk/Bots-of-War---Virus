@@ -3,14 +3,14 @@ from interfejsy import InterfejsGracz
 
 
 class Gracz(InterfejsGracz):
-    def __init__(self, gracz_id, nazwa, ilosc_graczy, Plansza):
+    def __init__(self, gracz_id, nazwa, ilosc_graczy, posrednik):
         self.gracz_id = gracz_id
         self.nazwa = nazwa
         self.karty_polozone = {}
         for gracz_id in range(1, ilosc_graczy + 1):
             self.karty_polozone[gracz_id] = []
         self.karty_uzyte = []
-        self.PosrednikGraczPlansza = PosrednikGraczPlansza(Plansza)
+        self.PosrednikGraczPlansza = posrednik
 
     def wymien_karte(self, gracz_id):
         karta = input("Wybierz karte do wymiany: ")
