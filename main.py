@@ -81,7 +81,7 @@ karta57 = Karta("żółty", "wirus")
 karta58 = Karta("wielokolorowy", "wirus")
 '''
 
-#okroić talie tylko do organow
+# okroić talie tylko do organow
 '''
 talia = [karta1, karta2, karta3, karta4, karta5, karta6, karta7, karta8, karta9, karta10, 
          karta11, karta12, karta13, karta14, karta15, karta16, karta17, karta18, karta19, 
@@ -90,23 +90,29 @@ talia = [karta1, karta2, karta3, karta4, karta5, karta6, karta7, karta8, karta9,
          karta40, karta41, karta42, karta43, karta44, karta45, karta46, karta47, karta48, karta49, 
          karta50, karta51, karta52, karta53, karta54, karta55, karta56, karta57, karta58]
 '''
-talia = [karta1, karta2, karta3, karta4, karta5, karta6, karta7, karta8, karta9, karta10, 
-         karta11, karta12, karta13, karta14, karta15, karta16, karta17, karta18, karta19, 
+talia = [karta1, karta2, karta3, karta4, karta5, karta6, karta7, karta8, karta9, karta10,
+         karta11, karta12, karta13, karta14, karta15, karta16, karta17, karta18, karta19,
          karta20, karta21]
 
 
 if __name__ == "__main__":
 
-    #liczba_graczy = int(input('Podaj liczbe graczy: '))
-    #main ma teraz wykonywac k meczy - jeden TURNIEJ
-    #main ma przechowywac liste zwyciezcow i zwracac ja na koniec TURNIEJU
-    
-    liczba_graczy = 1
+    # liczba_graczy = int(input('Podaj liczbe graczy: '))
+    # main ma teraz wykonywac k meczy - jeden TURNIEJ
+    # main ma przechowywac liste zwyciezcow i zwracac ja na koniec TURNIEJU
+    liczba_graczy = 0
+    with open('Bots.txt', 'r') as file:
+        lines = file.readlines()  # Read all lines into a list
+        liczba_graczy = len(lines)  # Calculate the number of lines
+        All_names = ''.join(lines)
+    All_names = All_names.split('\n')
+
     gracze = []
     Plansza = Plansza(talia)
     for gracz_id in range(1, liczba_graczy+1):
         posrednik = PosrednikGraczPlansza(Plansza, gracz_id)
-        gracze.append(BotRandomowy(gracz_id, 'bot', liczba_graczy, posrednik))
+        gracze.append(BotRandomowy(
+            gracz_id, All_names[gracz_id-1], liczba_graczy, posrednik))
     Plansza.gracze = gracze
     Plansza.rozdaj_karty(liczba_graczy)
     Plansza.rozgrywka()
