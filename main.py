@@ -31,33 +31,34 @@ karta18 = Karta("żółty", "organ")
 karta19 = Karta("żółty", "organ")
 karta20 = Karta("żółty", "organ")
 
-karta21 = Karta("wielokolorowy", "organ")
-
+karta21 = Karta("zielony", "lek")
 karta22 = Karta("zielony", "lek")
 karta23 = Karta("zielony", "lek")
 karta24 = Karta("zielony", "lek")
-karta25 = Karta("zielony", "lek")
 
+karta25 = Karta("czerwony", "lek")
 karta26 = Karta("czerwony", "lek")
 karta27 = Karta("czerwony", "lek")
 karta28 = Karta("czerwony", "lek")
-karta29 = Karta("czerwony", "lek")
 
+karta29 = Karta("niebieski", "lek")
 karta30 = Karta("niebieski", "lek")
 karta31 = Karta("niebieski", "lek")
 karta32 = Karta("niebieski", "lek")
-karta33 = Karta("niebieski", "lek")
 
+karta33 = Karta("żółty", "lek")
 karta34 = Karta("żółty", "lek")
 karta35 = Karta("żółty", "lek")
 karta36 = Karta("żółty", "lek")
-karta37 = Karta("żółty", "lek")
+
+'''
+karta37 = Karta("wielokolorowy", "organ")
 
 karta38 = Karta("wielokolorowy", "lek")
 karta39 = Karta("wielokolorowy", "lek")
 karta40= Karta("wielokolorowy", "lek")
 karta41 = Karta("wielokolorowy", "lek")
-'''
+
 karta42 = Karta("zielony", "wirus")
 karta43 = Karta("zielony", "wirus")
 karta44 = Karta("zielony", "wirus")
@@ -93,8 +94,7 @@ talia = [karta1, karta2, karta3, karta4, karta5, karta6, karta7, karta8, karta9,
 talia = [karta1, karta2, karta3, karta4, karta5, karta6, karta7, karta8, karta9, karta10,
          karta11, karta12, karta13, karta14, karta15, karta16, karta17, karta18, karta19,
          karta20, karta21, karta22, karta23, karta24, karta25, karta26, karta27, karta28, karta29, 
-         karta30, karta31, karta32, karta33, karta34, karta35, karta36, karta37, karta38, karta39, 
-         karta40, karta41]
+         karta30, karta31, karta32, karta33, karta34, karta35, karta36]
 
 
 if __name__ == "__main__":
