@@ -27,6 +27,21 @@ class Plansza(InterfejsPlanszy):
             self.karty_pozostale.remove(karta)
             rozdane_karty += 1
 
+    def sprawdz_czy_ruch_legalny(self, karta, gracz_id):
+        if karta in self.karty_na_reku[gracz_id]:
+            wylozone_karty_gracza = self.karty_polozone[gracz_id]
+            if karta.funkcja == 'lek':
+                for i in wylozone_karty_gracza:
+                    if i.funkcja == 'organ' and i.kolor == karta.kolor:
+                        if wylozone_karty_gracza.count(karta) < 2:
+                            return True
+            elif karta.funkcja == 'organ':
+                for i in wylozone_karty_gracza:
+                    if i.funkcja == 'organ' and i.kolor == karta.kolor:
+                        return False
+                return True
+        return False
+
     def poloz_karte(self, indeks_karty, gracz_id):
         karta = self.karty_na_reku[gracz_id][indeks_karty]
         self.karty_polozone[gracz_id].append(karta)
@@ -67,18 +82,20 @@ class Plansza(InterfejsPlanszy):
 
             for gracz in self.gracze:
                 print('RUCH GRACZA: ', gracz.gracz_id)
-                sleep(0.3)
+                sleep(0.1)
                 print('Karty na rece: ')
                 self.ui.pokaz_karty_na_reku(gracz.gracz_id)
-                sleep(0.3)
+                sleep(0.1)
                 print('\nKarty wylozone prez gracza ' + str(gracz.gracz_id) + ': ')
                 self.ui.pokaz_karty_wylozone_gracza(gracz.gracz_id)
-                sleep(0.3)
+                sleep(0.1)
                 print('\nKarty wylozone: ')
                 self.ui.pokaz_wylozone_karty()
-                sleep(0.3)
+                sleep(0.1)
                 gracz.wykonaj_ruch()
                 self.sprawdz_czy_koniec()
-                input('\nNacisnij dowolny przycisk aby kontynuowac: ')
+
+
+                #input('\nNacisnij dowolny przycisk aby kontynuowac: ')
 
 
