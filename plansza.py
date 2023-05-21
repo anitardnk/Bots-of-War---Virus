@@ -40,6 +40,11 @@ class Plansza(InterfejsPlanszy):
                     if i.funkcja == 'organ' and i.kolor == karta.kolor:
                         return False
                 return True
+            elif karta.funkcja == 'wirus':
+                for i in wylozone_karty_gracza:
+                    if (i.funkcja == 'organ' or i.funkcja == 'szczepionka' or i.funkcja == 'wirus') and i.kolor == karta.kolor:
+                        return True
+                return False
         return False
 
     def poloz_karte(self, indeks_karty, gracz_id):
