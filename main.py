@@ -51,35 +51,36 @@ karta34 = Karta("żółty", "lek")
 karta35 = Karta("żółty", "lek")
 karta36 = Karta("żółty", "lek")
 
+
+karta37 = Karta("zielony", "wirus")
+karta38 = Karta("zielony", "wirus")
+karta39 = Karta("zielony", "wirus")
+karta40 = Karta("zielony", "wirus")
+
+karta41 = Karta("czerwony", "wirus")
+karta42 = Karta("czerwony", "wirus")
+karta43 = Karta("czerwony", "wirus")
+karta44 = Karta("czerwony", "wirus")
+
+karta45 = Karta("niebieski", "wirus")
+karta46 = Karta("niebieski", "wirus")
+karta47 = Karta("niebieski", "wirus")
+karta48 = Karta("niebieski", "wirus")
+
+karta49 = Karta("żółty", "wirus")
+karta50 = Karta("żółty", "wirus")
+karta51 = Karta("żółty", "wirus")
+karta52 = Karta("żółty", "wirus")
+
 '''
-karta37 = Karta("wielokolorowy", "organ")
+karta53 = Karta("wielokolorowy", "wirus")
 
-karta38 = Karta("wielokolorowy", "lek")
-karta39 = Karta("wielokolorowy", "lek")
-karta40= Karta("wielokolorowy", "lek")
-karta41 = Karta("wielokolorowy", "lek")
+karta54 = Karta("wielokolorowy", "organ")
 
-karta42 = Karta("zielony", "wirus")
-karta43 = Karta("zielony", "wirus")
-karta44 = Karta("zielony", "wirus")
-karta45 = Karta("zielony", "wirus")
-
-karta46 = Karta("czerwony", "wirus")
-karta47 = Karta("czerwony", "wirus")
-karta48 = Karta("czerwony", "wirus")
-karta49 = Karta("czerwony", "wirus")
-
-karta50 = Karta("niebieski", "wirus")
-karta51 = Karta("niebieski", "wirus")
-karta52 = Karta("niebieski", "wirus")
-karta53 = Karta("niebieski", "wirus")
-
-karta54 = Karta("żółty", "wirus")
-karta55 = Karta("żółty", "wirus")
-karta56 = Karta("żółty", "wirus")
-karta57 = Karta("żółty", "wirus")
-
-karta58 = Karta("wielokolorowy", "wirus")
+karta55 = Karta("wielokolorowy", "lek")
+karta56 = Karta("wielokolorowy", "lek")
+karta57= Karta("wielokolorowy", "lek")
+karta58 = Karta("wielokolorowy", "lek")
 '''
 
 # okroić talie tylko do organow
@@ -90,12 +91,19 @@ talia = [karta1, karta2, karta3, karta4, karta5, karta6, karta7, karta8, karta9,
          karta30, karta31, karta32, karta33, karta34, karta35, karta36, karta37, karta38, karta39, 
          karta40, karta41, karta42, karta43, karta44, karta45, karta46, karta47, karta48, karta49, 
          karta50, karta51, karta52, karta53, karta54, karta55, karta56, karta57, karta58]
-'''
+
 talia = [karta1, karta2, karta3, karta4, karta5, karta6, karta7, karta8, karta9, karta10,
          karta11, karta12, karta13, karta14, karta15, karta16, karta17, karta18, karta19,
          karta20, karta21, karta22, karta23, karta24, karta25, karta26, karta27, karta28, karta29, 
          karta30, karta31, karta32, karta33, karta34, karta35, karta36]
+'''
 
+talia = [karta1, karta2, karta3, karta4, karta5, karta6, karta7, karta8, karta9, karta10, 
+         karta11, karta12, karta13, karta14, karta15, karta16, karta17, karta18, karta19, 
+         karta20, karta21, karta22, karta23, karta24, karta25, karta26, karta27, karta28, karta29, 
+         karta30, karta31, karta32, karta33, karta34, karta35, karta36, karta37, karta38, karta39, 
+         karta40, karta41, karta42, karta43, karta44, karta45, karta46, karta47, karta48, karta49, 
+         karta50, karta51, karta52]
 
 if __name__ == "__main__":
 
