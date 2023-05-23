@@ -16,6 +16,7 @@ class PosrednikGraczPlansza(InterfejsPosrednikGraczPlansza):
         if karta in self.__Plansza.karty_na_reku[gracz_id]:
             self.__Plansza.wymien_karte(indeks_karty, gracz_id)
             self.__Plansza.daj_karty_graczowi(1, gracz_id)
+            #delta = {'akcja': wyloz/wymien, 'indeks_karty': indeks wykladanej/wymienianej karty}
             delta = {'akcja': 'wymien', 'indeks_karty': indeks_karty}
             self.__Plansza.poinformuj_graczy_o_ruchu(delta, gracz_id)
             return True
@@ -30,6 +31,7 @@ class PosrednikGraczPlansza(InterfejsPosrednikGraczPlansza):
             if karta.funkcja == 'wirus' or karta.funkcja == 'lek':
                 self.__Plansza.sprawdz_skutki_ruchu(karta, gracz_id)
             self.__Plansza.daj_karty_graczowi(1, gracz_id)
+            #delta = {'akcja': wyloz/wymien, 'indeks_karty': indeks wykladanej/wymienianej karty}
             delta = {'akcja': 'wyloz', 'indeks_karty': indeks_karty}
             self.__Plansza.poinformuj_graczy_o_ruchu(delta, gracz_id)
             

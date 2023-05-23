@@ -88,6 +88,7 @@ class Plansza(InterfejsPlanszy):
         pass
 
     def poinformuj_graczy_o_ruchu(self, delta, gracz_id):
+        #delta = {'akcja': wyloz/wymien, 'indeks_karty': indeks wykladanej/wymienianej karty}
         if delta['akcja'] == 'wymien':
             karta = self.karty_uzyte[0].kolor, self.karty_uzyte[0].funkcja
             for gracz in self.gracze:

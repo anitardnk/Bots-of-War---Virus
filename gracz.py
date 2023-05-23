@@ -21,7 +21,11 @@ class Gracz(InterfejsGracz):
         return self.PosrednikGraczPlansza.wyloz_karte(karta, gracz_id)
 
     def aktualizacja_planszy_po_ruchu_wyloz(self, delta, gracz_id, karta):
+        #TODO korzystanie tylko z delty
+        #delta = {'akcja': wyloz/wymien, 'indeks_karty': indeks wykladanej/wymienianej karty}
         self.karty_polozone[gracz_id].append(karta)
     
     def aktualizacja_planszy_po_ruchu_wymien(self, delta, gracz_id, karta):
+        #TODO korzystanie tylko z delty
+        #delta = {'akcja': wyloz/wymien, 'indeks_karty': indeks wykladanej/wymienianej karty}
         self.karty_uzyte.append(karta)
