@@ -25,11 +25,11 @@ class PosrednikGraczPlansza(InterfejsPosrednikGraczPlansza):
     def wyloz_karte(self, indeks_karty, gracz_id):
         karta = self.__Plansza.karty_na_reku[gracz_id][indeks_karty]
         if self.__Plansza.sprawdz_czy_ruch_legalny(karta, gracz_id):
-            #poprawnosc ruchu
             self.__Plansza.poloz_karte(indeks_karty, gracz_id)
+            #dla organu nie trzeba sprawdzac poprawnosci ruchu
+            if karta.funkcja == 'wirus' or karta.funkcja == 'lek':
+                self.__Plansza.sprawdz_skutki_ruchu(karta, gracz_id)
             self.__Plansza.daj_karty_graczowi(1, gracz_id)
-            #delta = {'akcja' : akcja, 'indeks_karty': indeks_karty}
-            #delta = "wyloz "+str(indeks_karty)
             delta = {'akcja': 'wyloz', 'indeks_karty': indeks_karty}
             self.__Plansza.poinformuj_graczy_o_ruchu(delta, gracz_id)
             
