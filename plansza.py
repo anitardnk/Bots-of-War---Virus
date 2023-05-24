@@ -31,10 +31,13 @@ class Plansza(InterfejsPlanszy):
         if karta in self.karty_na_reku[gracz_id]:
             wylozone_karty_gracza = self.karty_polozone[gracz_id]
             if karta.funkcja == 'lek':
+                leki_tego_samego_koloru = [i for i in wylozone_karty_gracza if i.funkcja == 'lek' and i.kolor == karta.kolor]
+                if len(leki_tego_samego_koloru) >= 2:
+                    return False
                 for i in wylozone_karty_gracza:
                     if i.funkcja == 'organ' and i.kolor == karta.kolor:
                         if wylozone_karty_gracza.count(karta) < 2:
-                            return True
+                            return True   
             elif karta.funkcja == 'organ':
                 for i in wylozone_karty_gracza:
                     if i.funkcja == 'organ' and i.kolor == karta.kolor:
@@ -42,7 +45,7 @@ class Plansza(InterfejsPlanszy):
                 return True
             elif karta.funkcja == 'wirus':
                 for i in wylozone_karty_gracza:
-                    if (i.funkcja == 'organ' or i.funkcja == 'szczepionka' or i.funkcja == 'wirus') and i.kolor == karta.kolor:
+                    if (i.funkcja == 'organ' or i.funkcja == 'lek' or i.funkcja == 'wirus') and i.kolor == karta.kolor:
                         return True
                 return False
         return False
