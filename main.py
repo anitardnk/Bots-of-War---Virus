@@ -118,7 +118,7 @@ if __name__ == "__main__":
     All_names = All_names.split('\n')
 
     gracze = []
-    liczba_graczy = 1 # do testowania lepiej dac jednego gracza
+    #liczba_graczy = 1 # do testowania lepiej dac jednego gracza
     Plansza = Plansza(talia)
     for gracz_id in range(1, liczba_graczy+1):
         posrednik = PosrednikGraczPlansza(Plansza, gracz_id)
