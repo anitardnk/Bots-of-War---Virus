@@ -27,7 +27,7 @@ class PosrednikGraczPlansza(InterfejsPosrednikGraczPlansza):
         karta = self.__Plansza.karty_na_reku[gracz_id][indeks_karty]
         if self.__Plansza.sprawdz_czy_ruch_legalny(karta, gracz_id):
             #poprawnosc ruchu
-            self.__Plansza.poloz_karte(indeks_karty, gracz_id,)
+            self.__Plansza.poloz_karte(indeks_karty, gracz_id)
             self.__Plansza.daj_karty_graczowi(1, gracz_id)
             #delta = {'akcja' : akcja, 'indeks_karty': indeks_karty}
             #delta = "wyloz "+str(indeks_karty)
