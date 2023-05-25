@@ -18,14 +18,10 @@ class Gracz(InterfejsGracz):
 
     def wyloz_karte(self, gracz_id):
         karta = input("Wybierz karte do wylozenia: ")
-        return self.PosrednikGraczPlansza.wyloz_karte(karta, gracz_id)
+        return self.PosrednikGraczPlansza.wyloz_karte(karta, gracz_id, gracz_id_wyloz)
 
     def aktualizacja_planszy_po_ruchu_wyloz(self, delta, gracz_id, karta):
-        #TODO korzystanie tylko z delty
-        #delta = {'akcja': wyloz/wymien, 'indeks_karty': indeks wykladanej/wymienianej karty}
         self.karty_polozone[gracz_id].append(karta)
     
     def aktualizacja_planszy_po_ruchu_wymien(self, delta, gracz_id, karta):
-        #TODO korzystanie tylko z delty
-        #delta = {'akcja': wyloz/wymien, 'indeks_karty': indeks wykladanej/wymienianej karty}
         self.karty_uzyte.append(karta)
