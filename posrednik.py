@@ -23,7 +23,7 @@ class PosrednikGraczPlansza(InterfejsPosrednikGraczPlansza):
         else:
             return False
         
-      def wyloz_karte(self, indeks_karty, gracz_id, gracz_id_wyloz):
+    def wyloz_karte(self, indeks_karty, gracz_id, gracz_id_wyloz):
         karta = self.__Plansza.karty_na_reku[gracz_id][indeks_karty]
         if self.__Plansza.sprawdz_czy_ruch_legalny(karta, gracz_id):
             #poprawnosc ruchu
