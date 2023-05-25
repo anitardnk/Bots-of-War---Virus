@@ -29,8 +29,7 @@ class PosrednikGraczPlansza(InterfejsPosrednikGraczPlansza):
             #poprawnosc ruchu
             self.__Plansza.poloz_karte(indeks_karty, gracz_id)
             self.__Plansza.daj_karty_graczowi(1, gracz_id)
-            #delta = {'akcja' : akcja, 'indeks_karty': indeks_karty}
-            #delta = "wyloz "+str(indeks_karty)
+            #delta = {'akcja' : wyloz/wymien, 'indeks_karty': indeks wykladanej/wymienianej karty}
             delta = {'akcja': 'wyloz', 'indeks_karty': indeks_karty}
             self.__Plansza.poinformuj_graczy_o_ruchu(delta, gracz_id)
             
