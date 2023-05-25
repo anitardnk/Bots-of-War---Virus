@@ -13,6 +13,10 @@ class BotRandomowy(Gracz):
                 print('bledny ruch')
                 self.wykonaj_ruch()
         elif ruch == "wyloz":
-            if self.PosrednikGraczPlansza.wyloz_karte(indeks_karty, self.gracz_id) == False:
+            with open('Bots-of-War---Virus-main\Bots.txt', 'r') as plik:
+                gracze = plik.readlines()
+                ilosc_graczy = len(gracze)
+            gracz_id_wyloz = random.randrange(1, ilosc_graczy)
+            if self.PosrednikGraczPlansza.wyloz_karte(indeks_karty, self.gracz_id, gracz_id_wyloz) == False:
                 print('bledny ruch')
                 self.wykonaj_ruch()
