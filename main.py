@@ -98,11 +98,11 @@ talia = [karta1, karta2, karta3, karta4, karta5, karta6, karta7, karta8, karta9,
          karta30, karta31, karta32, karta33, karta34, karta35, karta36]
 '''
 
-talia = [karta1, karta2, karta3, karta4, karta5, karta6, karta7, karta8, karta9, karta10, 
-         karta11, karta12, karta13, karta14, karta15, karta16, karta17, karta18, karta19, 
-         karta20, karta21, karta22, karta23, karta24, karta25, karta26, karta27, karta28, karta29, 
-         karta30, karta31, karta32, karta33, karta34, karta35, karta36, karta37, karta38, karta39, 
-         karta40, karta41, karta42, karta43, karta44, karta45, karta46, karta47, karta48, karta49, 
+talia = [karta1, karta2, karta3, karta4, karta5, karta6, karta7, karta8, karta9, karta10,
+         karta11, karta12, karta13, karta14, karta15, karta16, karta17, karta18, karta19,
+         karta20, karta21, karta22, karta23, karta24, karta25, karta26, karta27, karta28, karta29,
+         karta30, karta31, karta32, karta33, karta34, karta35, karta36, karta37, karta38, karta39,
+         karta40, karta41, karta42, karta43, karta44, karta45, karta46, karta47, karta48, karta49,
          karta50, karta51, karta52]
 
 if __name__ == "__main__":
@@ -111,19 +111,25 @@ if __name__ == "__main__":
     # main ma teraz wykonywac k meczy - jeden TURNIEJ
     # main ma przechowywac liste zwyciezcow i zwracac ja na koniec TURNIEJU
     liczba_graczy = 0
+    dict = {}
+    print("================================================================")
     with open('Bots.txt', 'r') as file:
-        lines = file.readlines()  # Read all lines into a list
-        liczba_graczy = len(lines)  # Calculate the number of lines
+        lines = file.readlines()
+        liczba_graczy = len(lines)
         All_names = ''.join(lines)
-    All_names = All_names.split('\n')
-
+        Buff = All_names.split('\n')
+    for i in range(liczba_graczy):
+        Buff[i] = Buff[i].split('|')
+        if Buff[i][1] == 'BotRandomowy':
+            dict[Buff[i][0]] = BotRandomowy
+    print("================================================================")
     gracze = []
-    liczba_graczy = 2 # do testowania lepiej dac jednego gracza
+    liczba_graczy = 2  # do testowania lepiej dac jednego gracza
     Plansza = Plansza(talia)
     for gracz_id in range(1, liczba_graczy+1):
         posrednik = PosrednikGraczPlansza(Plansza, gracz_id)
-        gracze.append(BotRandomowy(
-            gracz_id, All_names[gracz_id-1], liczba_graczy, posrednik))
+        gracze.append(dict[Buff[gracz_id-1][0]](
+            gracz_id, Buff[gracz_id-1][0], liczba_graczy, posrednik))
     Plansza.gracze = gracze
     Plansza.rozdaj_karty(liczba_graczy)
     Plansza.rozgrywka()

@@ -1,4 +1,2 @@
-ania
-kuba
-ania
-werka
+ania|BotRandomowy
+kuba|BotRandomowy
