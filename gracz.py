@@ -10,6 +10,7 @@ class Gracz(InterfejsGracz):
         for gracz_id in range(1, ilosc_graczy + 1):
             self.karty_polozone[gracz_id] = []
         self.karty_uzyte = []
+        self.ilosc_graczy = ilosc_graczy
         self.PosrednikGraczPlansza = posrednik
 
     def wymien_karte(self, gracz_id):
@@ -20,8 +21,8 @@ class Gracz(InterfejsGracz):
         karta = input("Wybierz karte do wylozenia: ")
         return self.PosrednikGraczPlansza.wyloz_karte(karta, gracz_id, gracz_id_wyloz)
 
-    def aktualizacja_planszy_po_ruchu_wyloz(self, delta, gracz_id, karta):
-        self.karty_polozone[gracz_id].append(karta)
+    def aktualizacja_planszy_po_ruchu_wyloz(self, delta, karta):
+        self.karty_polozone[delta['gracz_id_wyloz']].append(karta)
     
-    def aktualizacja_planszy_po_ruchu_wymien(self, delta, gracz_id, karta):
+    def aktualizacja_planszy_po_ruchu_wymien(self, delta, karta):
         self.karty_uzyte.append(karta)

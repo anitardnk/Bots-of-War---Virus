@@ -10,8 +10,10 @@ class ui(InterfejsUI):
     def pokaz_wylozone_karty(self):
 
         for gracz in self.Plansza.gracze:
+            print(str(gracz.nazwa))
             for i in self.Plansza.karty_polozone[gracz.gracz_id ]:
-                print('\t'+str(gracz.nazwa)+'('+str(gracz.gracz_id)+')'+'- ' + i.kolor, i.funkcja, end="\t")
+                print('('+str(gracz.gracz_id)+')'+'- ' + i.kolor, i.funkcja, end="\t")
+            print('\n')
 
 
     def pokaz_karty_na_reku(self, gracz_id):
