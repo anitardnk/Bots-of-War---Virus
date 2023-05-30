@@ -18,12 +18,32 @@ class Plansza(InterfejsPlanszy):
             self.karty_polozone[gracz_id] = []
             self.karty_na_reku[gracz_id] = []
             self.daj_karty_graczowi(3, gracz_id)
-
-    def daj_karty_graczowi(self, ilosc_kart, gracz_id):
+    
+    '''def daj_karty_graczowi(self, ilosc_kart, gracz_id):
         rozdane_karty = 0
         while rozdane_karty != ilosc_kart:
             karta = random.choice(self.karty_pozostale)
             self.karty_na_reku[gracz_id].append(karta)
+            self.karty_pozostale.remove(karta)
+            rozdane_karty += 1'''
+
+    def daj_karty_graczowi(self, ilosc_kart, gracz_id):
+        rozdane_karty = 0
+        while rozdane_karty != ilosc_kart:
+            if not self.karty_pozostale:
+                self.tasuj_karty(self.karty_uzyte, self.karty_pozostale)
+            karta = random.choice(self.karty_pozostale)
+            print(karta)
+            if type(karta) is list:
+                print(self.karty_pozostale)
+                for i in karta:
+                    print(i.funkcja, i.kolor)
+                input()
+            else:
+                print(karta.kolor, karta.funkcja)
+
+            self.karty_na_reku[gracz_id].append(karta)
+            print(self.karty_na_reku[gracz_id])
             self.karty_pozostale.remove(karta)
             rozdane_karty += 1
 
@@ -69,11 +89,11 @@ class Plansza(InterfejsPlanszy):
         if len(wirusy) == 2:
             karty_do_usuniecia = wirusy + [organ]
             self.karty_polozone[gracz_id_wyloz] = [i for i in self.karty_polozone[gracz_id_wyloz] if i not in karty_do_usuniecia]
-            self.karty_uzyte.append(karty_do_usuniecia)
+            self.karty_uzyte += karty_do_usuniecia
         elif len(wirusy) == 1 and len(leki) == 1:
             karty_do_usuniecia = leki + wirusy
             self.karty_polozone[gracz_id_wyloz] = [i for i in self.karty_polozone[gracz_id_wyloz] if i not in karty_do_usuniecia]
-            self.karty_uzyte.append(karty_do_usuniecia)
+            self.karty_uzyte += karty_do_usuniecia
 
     def poloz_karte(self, indeks_karty, gracz_id, gracz_id_wyloz):
         karta = self.karty_na_reku[gracz_id][indeks_karty]
@@ -101,7 +121,14 @@ class Plansza(InterfejsPlanszy):
             karta = self.karty_polozone[delta['gracz_id_wyloz']][0]
             for gracz in self.gracze:
                 gracz.aktualizacja_planszy_po_ruchu_wyloz(delta, karta)
-    
+
+    def tasuj_karty(self, ilosc_kart, gracz_id):
+        self.karty_pozostale = self.karty_uzyte[:-1]
+        self.karty_uzyte = [self.karty_uzyte[-1]]
+        #random.shuffle(karty_tasowane)
+        
+        input()
+
     def sprawdz_czy_koniec(self):
         #4 ograny bez zadnego wirusa - stan na 23.05 4 kolory organow - nie moze byc zadnego wirusa
         for gracz_id, karty_gracza in self.karty_polozone.items():
@@ -110,7 +137,10 @@ class Plansza(InterfejsPlanszy):
                 wirusy = [karta for karta in karty_gracza if karta.funkcja == "wirus"]
                 if len(wirusy) == 0:
                     print(f"\nKoniec gry! Gracz {gracz_id} ma 4 karty z organem.")
-                    exit()
+                    #quit()
+                    #self.tasuj_karty(self, gracz_id)
+                    return True
+        return False
 
 
     def rozgrywka(self):
@@ -131,7 +161,9 @@ class Plansza(InterfejsPlanszy):
                 self.ui.pokaz_wylozone_karty()
                 #sleep(0.1)
                 gracz.wykonaj_ruch()
+
                 self.sprawdz_czy_koniec()
+        
 
 
                 #input('\nNacisnij dowolny przycisk aby kontynuowac: ')
