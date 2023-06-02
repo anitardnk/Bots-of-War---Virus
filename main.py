@@ -112,17 +112,19 @@ if __name__ == "__main__":
     # main ma przechowywac liste zwyciezcow i zwracac ja na koniec TURNIEJU
     liczba_graczy = 0
     dict = {}
-    print("================================================================")
+   
     with open('Bots.txt', 'r') as file:
         lines = file.readlines()
-        liczba_graczy = len(lines)
+        liczba_graczy = len(lines)-1
         All_names = ''.join(lines)
         Buff = All_names.split('\n')
     for i in range(liczba_graczy):
         Buff[i] = Buff[i].split('|')
         if Buff[i][1] == 'BotRandomowy':
             dict[Buff[i][0]] = BotRandomowy
-    print("================================================================")
+    last_line = lines[-1].strip()  # Extract the last line and remove leading/trailing whitespace
+
+# Print the last line
     gracze = []
     liczba_graczy = 2  # do testowania lepiej dac jednego gracza
     Plansza = Plansza(talia)
@@ -132,4 +134,7 @@ if __name__ == "__main__":
             gracz_id, Buff[gracz_id-1][0], liczba_graczy, posrednik))
     Plansza.gracze = gracze
     Plansza.rozdaj_karty(liczba_graczy)
-    Plansza.rozgrywka()
+    for i in range(int(Buff[-1])):
+        print('----------------------------------------'+'Round '+str(i+1)+'--------------------------------------------------------')
+        
+        Plansza.rozgrywka()
