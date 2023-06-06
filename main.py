@@ -138,3 +138,4 @@ if __name__ == "__main__":
  #       print('----------------------------------------'+'Round '+str(i+1)+'--------------------------------------------------------')
         
     Plansza.rozgrywka()
+    print("Gracz", All_names[gracz_id-1], "wygrał!")
