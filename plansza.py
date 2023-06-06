@@ -139,10 +139,10 @@ class Plansza(InterfejsPlanszy):
             if len(karty_z_organem) == 4:
                 wirusy = [karta for karta in karty_gracza if karta.funkcja == "wirus"]
                 if len(wirusy) == 0:
-                    print(f"\nKoniec gry! Gracz {gracz_id} ma 4 karty z organem.")
+                    #print(f"\nKoniec gry! Gracz {gracz_id} ma 4 karty z organem.")
                     #quit()
                     #self.tasuj_karty(self, gracz_id)
-                    return True
+                    return gracz_id
         return False
 
 
@@ -163,8 +163,11 @@ class Plansza(InterfejsPlanszy):
                 self.ui.pokaz_wylozone_karty()
                 #sleep(0.1)
                 gracz.wykonaj_ruch()
-
-                self.sprawdz_czy_koniec()
+                wygrany = self.sprawdz_czy_koniec()
+                if wygrany:
+                    #print("Gracz", wygrany, "wygrał!")
+                    koniec = True
+                    break
         
 
 
