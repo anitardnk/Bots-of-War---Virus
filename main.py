@@ -3,7 +3,7 @@ from gracz import Gracz
 from interfejsy import InterfejsPlanszy
 from karta import Karta
 from gracz import Gracz
-from boty import BotRandomowy
+from boty import BotRandomowy, BotSchematyczny
 from posrednik import PosrednikGraczPlansza
 
 
@@ -120,8 +120,8 @@ if __name__ == "__main__":
         Buff = All_names.split('\n')
     for i in range(liczba_graczy):
         Buff[i] = Buff[i].split('|')
-        if Buff[i][1] == 'BotRandomowy':
-            dict[Buff[i][0]] = BotRandomowy
+        dict[Buff[i][0]] = eval(Buff[i][1])
+        
     last_line = lines[-1].strip()  # Extract the last line and remove leading/trailing whitespace
 
 # Print the last line
