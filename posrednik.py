@@ -44,3 +44,7 @@ class PosrednikGraczPlansza(InterfejsPosrednikGraczPlansza):
         karty = self.__Plansza.karty_na_reku[self.__gracz_id]
         karty_opisane = [i.kolor + " " +i.funkcja for i in karty]
         return karty_opisane
+        
+    def karty_gracza_obiekt(self):
+        karty = self.__Plansza.karty_na_reku[self.__gracz_id]
+        return karty
