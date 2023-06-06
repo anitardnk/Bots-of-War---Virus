@@ -134,7 +134,7 @@ if __name__ == "__main__":
             gracz_id, Buff[gracz_id-1][0], liczba_graczy, posrednik))
     Plansza.gracze = gracze
     Plansza.rozdaj_karty(liczba_graczy)
-    for i in range(int(Buff[-1])):
-        print('----------------------------------------'+'Round '+str(i+1)+'--------------------------------------------------------')
+#    for i in range(int(Buff[-1])):
+ #       print('----------------------------------------'+'Round '+str(i+1)+'--------------------------------------------------------')
         
-        Plansza.rozgrywka()
+    Plansza.rozgrywka()

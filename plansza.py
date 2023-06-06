@@ -64,6 +64,9 @@ class Plansza(InterfejsPlanszy):
                         return False
                 return True
             elif karta.funkcja == 'wirus':
+                leki_tego_samego_koloru = [i for i in wylozone_karty_gracza if i.funkcja == 'lek' and i.kolor == karta.kolor]
+                if len(leki_tego_samego_koloru) >= 2:
+                    return False
                 for i in wylozone_karty_gracza:
                     if (i.funkcja == 'organ' or i.funkcja == 'lek' or i.funkcja == 'wirus') and i.kolor == karta.kolor:
                         return True
@@ -127,7 +130,7 @@ class Plansza(InterfejsPlanszy):
         self.karty_uzyte = [self.karty_uzyte[-1]]
         #random.shuffle(karty_tasowane)
         
-        input()
+        #input()
 
     def sprawdz_czy_koniec(self):
         #4 ograny bez zadnego wirusa - stan na 23.05 4 kolory organow - nie moze byc zadnego wirusa
@@ -147,7 +150,6 @@ class Plansza(InterfejsPlanszy):
         #plansza powinna miec liste graczy/botow
         koniec = False
         while koniec is False:
-
             for gracz in self.gracze:
                 print('RUCH GRACZA: ', gracz.gracz_id)
                 #sleep(0.1)
