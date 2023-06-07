@@ -6,7 +6,7 @@ from gracz import Gracz
 from boty import BotRandomowy, BotSchematyczny
 from posrednik import PosrednikGraczPlansza
 
-
+from UI import ui
 karta1 = Karta("zielony", "organ")
 karta2 = Karta("zielony", "organ")
 karta3 = Karta("zielony", "organ")
@@ -119,17 +119,17 @@ if __name__ == "__main__":
         liczba_graczy = len(lines)-1
         All_names = ''.join(lines)
         Buff = All_names.split('\n')
-    print('----------------------> '+str((Buff)))
+
     for i in range(liczba_graczy):
         Buff[i] = Buff[i].split('|')
         dict[Buff[i][0]] = eval(Buff[i][1])
 
     # Extract the last line and remove leading/trailing whitespace
     last_line = lines[-1].strip()
-    print('----------------------> '+str((Buff[-1])))
-# Print the last line
+
+
     gracze = []
-    liczba_graczy = 2  # do testowania lepiej dac jednego gracza
+   # liczba_graczy = 2  # do testowania lepiej dac jednego gracza
     Plansza = Plansza(talia)
     for gracz_id in range(1, liczba_graczy+1):
         posrednik = PosrednikGraczPlansza(Plansza, gracz_id)
@@ -139,9 +139,7 @@ if __name__ == "__main__":
     Plansza.rozdaj_karty(liczba_graczy)
     while (Buff[-n_line] == ''):
         n_line += 1
-
+    Plansza.inizilizacja_rachuku()
     for i in range(int(Buff[-n_line])):
-        print('----------------------------------------'+'Round '+str(i+1) +
-              '--------------------------------------------------------')
+
         Plansza.rozgrywka()
-        print("Gracz", All_names[gracz_id-1], "wygrał!"+' Round '+str(i+1))
