@@ -15,9 +15,12 @@ class Plansza(InterfejsPlanszy):
         self.karty_na_reku = {}
         self.ilosc_graczy = 0
         self.rachunek = {}
+        self.count_rund=1
 
     def rozdaj_karty(self, ilosc_graczy):
         self.ilosc_graczy = ilosc_graczy
+        self.ui.pokaz_nr_rounda(self.count_rund)
+        self.count_rund+=1
         for gracz_id in range(1, ilosc_graczy + 1):
             self.karty_polozone[gracz_id] = []
             self.karty_na_reku[gracz_id] = []
@@ -183,7 +186,9 @@ class Plansza(InterfejsPlanszy):
 
                 # input('\nNacisnij dowolny przycisk aby kontynuowac: ')
 
-    def inizilizacja_rachuku(self):
-
-        for i in range(self.ilosc_graczy):
+    def inizilizacja_rachuku(self,liczba_graczy):
+        for i in range(liczba_graczy):
             self.rachunek["Gracz-" + str(i+1)] = 0
+        print(self.rachunek)
+        input('')
+        
