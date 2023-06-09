@@ -182,7 +182,7 @@ class Plansza(InterfejsPlanszy):
                     self.ui.pokaz_rezultat_gry(
                         self.ilosc_graczy, gracz.gracz_id)
                     koniec = True
-                    break
+                    #break
 
                 # input('\nNacisnij dowolny przycisk aby kontynuowac: ')
 
