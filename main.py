@@ -127,7 +127,6 @@ if __name__ == "__main__":
     # Extract the last line and remove leading/trailing whitespace
     last_line = lines[-1].strip()
 
-
     gracze = []
    # liczba_graczy = 2  # do testowania lepiej dac jednego gracza
     Plansza = Plansza(talia)
@@ -136,10 +135,10 @@ if __name__ == "__main__":
         gracze.append(dict[Buff[gracz_id-1][0]](
             gracz_id, Buff[gracz_id-1][0], liczba_graczy, posrednik))
     Plansza.gracze = gracze
-    Plansza.rozdaj_karty(liczba_graczy)
+    
     while (Buff[-n_line] == ''):
         n_line += 1
-    Plansza.inizilizacja_rachuku()
+    Plansza.inizilizacja_rachuku(liczba_graczy)
     for i in range(int(Buff[-n_line])):
-
+        Plansza.rozdaj_karty(liczba_graczy)
         Plansza.rozgrywka()
