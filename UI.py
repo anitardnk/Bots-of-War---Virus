@@ -25,6 +25,11 @@ class ui(InterfejsUI):
         for i in self.Plansza.karty_polozone[gracz_id]:
             print('\t' + i.kolor, i.funkcja, end="\t")
 
+    def pokaz_nr_rounda(self, nr_runda):
+
+        print("------------------Round "+str(nr_runda)+"--------------------")
+        input('')
+
     def pokaz_rezultat_gry(self, number_of_gracz, kto_wygral):
         for i in range(number_of_gracz):
             if i+1 == kto_wygral:
