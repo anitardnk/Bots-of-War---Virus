@@ -15,12 +15,12 @@ class Plansza(InterfejsPlanszy):
         self.karty_na_reku = {}
         self.ilosc_graczy = 0
         self.rachunek = {}
-        self.count_rund=1
+        self.count_rund = 1
 
     def rozdaj_karty(self, ilosc_graczy):
         self.ilosc_graczy = ilosc_graczy
         self.ui.pokaz_nr_rounda(self.count_rund)
-        self.count_rund+=1
+        self.count_rund += 1
         for gracz_id in range(1, ilosc_graczy + 1):
             self.karty_polozone[gracz_id] = []
             self.karty_na_reku[gracz_id] = []
@@ -46,8 +46,6 @@ class Plansza(InterfejsPlanszy):
                 for i in karta:
                     print(i.funkcja, i.kolor)
                 input()
-            else:
-                print(karta.kolor, karta.funkcja)
 
             self.karty_na_reku[gracz_id].append(karta)
 
@@ -159,36 +157,50 @@ class Plansza(InterfejsPlanszy):
                     return gracz_id
         return False
 
-    def rozgrywka(self):
+    def rozgrywka(self, doi, delay):
         # plansza powinna miec liste graczy/botow
         koniec = False
         while koniec is False:
             for gracz in self.gracze:
                 print('RUCH GRACZA: ', gracz.gracz_id)
                 # sleep(0.1)
+                if doi == 'd':
+                    sleep(delay)
+                if doi == 'i':
+                    input()
                 print('Karty na rece: ')
                 self.ui.pokaz_karty_na_reku(gracz.gracz_id)
                 # sleep(0.1)
+                if doi == 'd':
+                    sleep(delay)
+                if doi == 'i':
+                    input()
                 print('\nKarty wylozone prez gracza ' +
                       str(gracz.gracz_id) + ': ')
                 self.ui.pokaz_karty_wylozone_gracza(gracz.gracz_id)
                 # sleep(0.1)
+                if doi == 'd':
+                    sleep(delay)
+                if doi == 'i':
+                    input()
                 print('\nKarty wylozone: ')
                 self.ui.pokaz_wylozone_karty()
                 # sleep(0.1)
+                if doi == 'd':
+                    sleep(delay)
+                if doi == 'i':
+                    input()
                 gracz.wykonaj_ruch()
                 wygrany = self.sprawdz_czy_koniec()
                 if wygrany:
                     self.ui.pokaz_rezultat_gry(
                         self.ilosc_graczy, gracz.gracz_id)
                     koniec = True
-                    #break
+                    input()
+                    # break
 
                 # input('\nNacisnij dowolny przycisk aby kontynuowac: ')
 
-    def inizilizacja_rachuku(self,liczba_graczy):
+    def inizilizacja_rachuku(self, liczba_graczy):
         for i in range(liczba_graczy):
             self.rachunek["Gracz-" + str(i+1)] = 0
-        print(self.rachunek)
-        input('')
-        
