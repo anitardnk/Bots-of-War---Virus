@@ -1,0 +1,24 @@
+Bot dziedziczy po klasie Gracz
+
+klasa Bot musi mieć metodę:
+	-wykonaj_ruch(self):
+		
+Metoda wykonaj_ruch(self) zawiera wszystkie możliwe ruchy, jakie może wykonać Bot. 
+	Są nimi:
+			-wyłożenie jednej karty z kart trzymanych na ręce:
+				-odpowiada za to wywołanie metody self.PosrednikGraczPlansza.wyloz_karte(indeks_karty, gracz_id_wyloz), gdzie
+						-indeks_karty - indeks karty, której chcemy użyć,
+						-gracz_id_wyłóż - id gracza, na którego pole chcemy wyłożyć kartę
+						-self.gracz_id - id wykonującego ruch, jeżeli chce wyłożyć sobie kartę
+					Ponadto należy sprawdzić, czy wywołanie metody nie zwraca False, wtedy należy pominąć wywołanie metody
+					
+			-wymianę jednej karty z kart trzymanych na ręce:
+				-odpowiada za to wywołanie metody self.PosrednikGraczPlansza.wymien_karte(indeks_karty), gdzie:
+						-indeks_karty - indeks karty, którą chcemy wymienić
+					Ponadto należy sprawdzić, czy wywołanie metody nie zwraca False, wtedy należy pominąć wywołanie metody
+					
+karta - obiekt karty
+karty - zbiór obiektów karty
+karta.funkcja - funkcja danej karty
+karta.kolor - kolor danej karty
+			
