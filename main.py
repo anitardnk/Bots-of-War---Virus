@@ -113,13 +113,20 @@ if __name__ == "__main__":
     liczba_graczy = 0
     dict = {}
     n_line = 1
+    doi=''
     with open('Bots.txt', 'r') as file:
         lines = file.readlines()
 
-        liczba_graczy = len(lines)-1
+        liczba_graczy = len(lines)-2
         All_names = ''.join(lines)
         Buff = All_names.split('\n')
-
+        for i in lines:
+            if i[:5] == 'delay':
+                delay = int(i[6:])
+                doi='d'
+            elif i[:5]=='input':
+                doi='i'
+                delay=0
     for i in range(liczba_graczy):
         Buff[i] = Buff[i].split('|')
         dict[Buff[i][0]] = eval(Buff[i][1])
@@ -135,10 +142,11 @@ if __name__ == "__main__":
         gracze.append(dict[Buff[gracz_id-1][0]](
             gracz_id, Buff[gracz_id-1][0], liczba_graczy, posrednik))
     Plansza.gracze = gracze
-    
+
     while (Buff[-n_line] == ''):
         n_line += 1
     Plansza.inizilizacja_rachuku(liczba_graczy)
     for i in range(int(Buff[-n_line])):
+        
         Plansza.rozdaj_karty(liczba_graczy)
-        Plansza.rozgrywka()
+        Plansza.rozgrywka(doi,delay)
