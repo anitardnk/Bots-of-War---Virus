@@ -1,3 +1,4 @@
 ania|BotRandomowy
 kuba|BotSchematyczny
+input
 2
