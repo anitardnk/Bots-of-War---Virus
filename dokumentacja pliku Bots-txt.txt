@@ -1,0 +1,15 @@
+Dokumentacja pliku Bots.txt
+
+Plik składa się z czterech typów danych:
+-nazwa gracza - np. ania, kuba, weronika
+-typ wykorzystywanego w grze bota - BotRandomowy lub BotSchematyczny
+-liczba graczy
+-wartość opóźnienia wyświetlania kolejnego ruchu.
+
+Nazwa gracza oraz typ wykorzystywanego bota umieszczane są na początku pliku oraz są oddzielane pipelinem bez spacji ( czyli znakiem | ), np. ania|BotRandomowy
+Nazwa gracza jest typu string.
+Do wykorzystania mamy tylko dwa rodzaje botów: BotRandomowy oraz BotSchematyczny.
+Wartość opóźnienia jest typu integer, może zostać zadeklarowana w pliku Bots.txt (wtedy w pliku mamy linię: delay|2, co oznacza, że opóźnienie pomiedzy kolejnymi ruchami będzie wynosiło 2 sekundy)
+lub może zostać podawana jako input w konsoli (wtedy w pliku Bots.txt mamy linię: input).
+Liczba graczy jest zawsze umieszczana w ostatniej linijce pliku oraz jest typu integer (int).
+
