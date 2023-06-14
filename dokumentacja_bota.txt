@@ -1,3 +1,4 @@
+Boty dodaje się w pliku bots.py
 Bot dziedziczy po klasie Gracz
 
 klasa Bot musi mieć metodę:
