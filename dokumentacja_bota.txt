@@ -1,5 +1,16 @@
-Boty dodaje się w pliku boty.py
-Bot dziedziczy po klasie Gracz
+Boty dodaje się w pliku boty.py.
+W pliku Bots.txt należy dodać nazwę i klasę bota.
+Bot dziedziczy po klasie Gracz.
+
+W jaki sposób napisać nowego bota:
+	1. Utworzyć nową klasę dla bota, która będzie dziedziczyć po klasie Gracz.
+	2. Wewnątrz klasy bota, zaimplementować metodę wykonaj_ruch(), która będzie określać, jak bot ma podejmować decyzje.
+	3. W metodzie wykonaj_ruch(), należy używać dostępnych funkcji i metod, aby uzyskać informacje o stanie gry i kartach gracza.
+	4. Na podstawie tych informacji, zaimplementować prostą logikę, która decyduje, jakie ruchy bot ma wykonywać.
+	5. Należy wykorzystywać metody dostępne w klasie PosrednikGraczPlansza, aby wykonywać ruchy, takie jak wymiana kart 
+	czy wyłożenie ich na planszę.
+	6. Przetestować bota.
+  
 
 klasa Bot musi mieć metodę:
 	-wykonaj_ruch(self):
@@ -11,15 +22,15 @@ Metoda wykonaj_ruch(self) zawiera wszystkie możliwe ruchy, jakie może wykonać
 						-indeks_karty - indeks karty, której chcemy użyć,
 						-gracz_id_wyłóż - id gracza, na którego pole chcemy wyłożyć kartę
 						-self.gracz_id - id wykonującego ruch, jeżeli chce wyłożyć sobie kartę
-					Ponadto należy sprawdzić, czy wywołanie metody nie zwraca False, wtedy należy pominąć wywołanie metody
+					Ponadto należy sprawdzić, czy wywołanie metody nie zwraca False,  wtedy należy wykonać inny ruch
 					
 			-wymianę jednej karty z kart trzymanych na ręce:
 				-odpowiada za to wywołanie metody self.PosrednikGraczPlansza.wymien_karte(indeks_karty), gdzie:
 						-indeks_karty - indeks karty, którą chcemy wymienić
-					Ponadto należy sprawdzić, czy wywołanie metody nie zwraca False, wtedy należy pominąć wywołanie metody
+					Ponadto należy sprawdzić, czy wywołanie metody nie zwraca False,  wtedy należy wykonać inny ruch
 					
 karta - obiekt karty
 karty - zbiór obiektów karty
 karta.funkcja - funkcja danej karty
 karta.kolor - kolor danej karty
-			
+lista_graczy - lista dostępnych graczy, z których można wybrać, komu wyłożyć kartę
