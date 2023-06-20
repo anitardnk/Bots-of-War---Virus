@@ -122,7 +122,7 @@ if __name__ == "__main__":
         Buff = All_names.split('\n')
         for i in lines:
             if i[:5] == 'delay':
-                delay = int(i[6:])
+                delay = float(i[6:])
                 doi='d'
             elif i[:5]=='input':
                 doi='i'
