@@ -3,7 +3,7 @@ Dokumentacja pliku Bots.txt
 Plik składa się z czterech typów danych:
 -nazwa gracza - np. ania, kuba, weronika
 -typ wykorzystywanego w grze bota - BotRandomowy lub BotSchematyczny
--liczba rund w turnieju
+-liczba wygranych rund potrzebna do ukończenia turnieju
 -wartość opóźnienia wyświetlania kolejnego ruchu.
 
 Nazwa gracza oraz typ wykorzystywanego bota umieszczane są na początku pliku oraz są oddzielane pipelinem bez spacji ( czyli znakiem | ), np. ania|BotRandomowy

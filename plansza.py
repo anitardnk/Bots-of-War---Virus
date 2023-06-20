@@ -17,6 +17,14 @@ class Plansza(InterfejsPlanszy):
         self.rachunek = {}
         self.count_rund = 1
 
+
+    def czyszczenie_rozgrywki(self, talia):
+        self.talia = talia  # lista objektow klasy Karta
+        self.karty_pozostale = self.talia[:]
+        self.karty_uzyte = []
+        self.karty_polozone = {}
+        self.karty_na_reku = {}
+
     def rozdaj_karty(self, ilosc_graczy):
         self.ilosc_graczy = ilosc_graczy
         self.ui.pokaz_nr_rounda(self.count_rund)
@@ -131,14 +139,18 @@ class Plansza(InterfejsPlanszy):
             for gracz in self.gracze:
                 gracz.aktualizacja_planszy_po_ruchu_wymien(delta, karta)
         elif delta['akcja'] == 'wyloz':
-            karta = self.karty_polozone[delta['gracz_id_wyloz']][0]
-            for gracz in self.gracze:
-                gracz.aktualizacja_planszy_po_ruchu_wyloz(delta, karta)
+            try:
+                karta = self.karty_polozone[delta['gracz_id_wyloz']][0]
+                for gracz in self.gracze:
+                    gracz.aktualizacja_planszy_po_ruchu_wyloz(delta, karta)
+            except:
+                pass
+            
 
     def tasuj_karty(self, ilosc_kart, gracz_id):
         self.karty_pozostale = self.karty_uzyte[:-1]
         self.karty_uzyte = [self.karty_uzyte[-1]]
-        # random.shuffle(karty_tasowane)
+        random.shuffle(self.karty_pozostale)
 
         # input()
 

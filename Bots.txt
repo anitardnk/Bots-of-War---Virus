@@ -1,4 +1,4 @@
 ania|BotRandomowy
 kuba|BotSchematyczny
-input
-2
+delay|0
+10

@@ -146,7 +146,9 @@ if __name__ == "__main__":
     while (Buff[-n_line] == ''):
         n_line += 1
     Plansza.inizilizacja_rachuku(liczba_graczy)
+
     for i in range(int(Buff[-n_line])):
-        
         Plansza.rozdaj_karty(liczba_graczy)
         Plansza.rozgrywka(doi,delay)
+        print('Czyszczenie rozgrywki')
+        Plansza.czyszczenie_rozgrywki(talia)
